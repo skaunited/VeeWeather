@@ -14,6 +14,7 @@
 		01E12E0B26F29A6400EC0D7E /* VeeWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01E12E0926F29A6400EC0D7E /* VeeWeather.xcdatamodeld */; };
 		01E12E0D26F29A6600EC0D7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01E12E0C26F29A6600EC0D7E /* Assets.xcassets */; };
 		01E12E1026F29A6600EC0D7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E12E0E26F29A6600EC0D7E /* LaunchScreen.storyboard */; };
+		5C5CA0A192EF152886A6462F /* Pods_VeeWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E1C3956451FB3E7FB61528 /* Pods_VeeWeather.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		01E12E0C26F29A6600EC0D7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01E12E0F26F29A6600EC0D7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01E12E1126F29A6600EC0D7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E1C3956451FB3E7FB61528 /* Pods_VeeWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VeeWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C1134AF66B096CEA29C21A1 /* Pods-VeeWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeeWeather.debug.xcconfig"; path = "Target Support Files/Pods-VeeWeather/Pods-VeeWeather.debug.xcconfig"; sourceTree = "<group>"; };
+		CC672F5F10549F5603A3A195 /* Pods-VeeWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeeWeather.release.xcconfig"; path = "Target Support Files/Pods-VeeWeather/Pods-VeeWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C5CA0A192EF152886A6462F /* Pods_VeeWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				01E12DFF26F29A6400EC0D7E /* VeeWeather */,
 				01E12DFE26F29A6400EC0D7E /* Products */,
+				0CDE39BE97C1944FD2549BC7 /* Pods */,
+				7AD0E7FB8F7D6F5E9AE9E42B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +77,24 @@
 			path = VeeWeather;
 			sourceTree = "<group>";
 		};
+		0CDE39BE97C1944FD2549BC7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1C1134AF66B096CEA29C21A1 /* Pods-VeeWeather.debug.xcconfig */,
+				CC672F5F10549F5603A3A195 /* Pods-VeeWeather.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7AD0E7FB8F7D6F5E9AE9E42B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04E1C3956451FB3E7FB61528 /* Pods_VeeWeather.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01E12E1426F29A6600EC0D7E /* Build configuration list for PBXNativeTarget "VeeWeather" */;
 			buildPhases = (
+				C202895888B3B12E4EAC67F4 /* [CP] Check Pods Manifest.lock */,
 				01E12DF926F29A6400EC0D7E /* Sources */,
 				01E12DFA26F29A6400EC0D7E /* Frameworks */,
 				01E12DFB26F29A6400EC0D7E /* Resources */,
+				128B0EAF797890C040D045EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,6 +161,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		128B0EAF797890C040D045EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VeeWeather/Pods-VeeWeather-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VeeWeather/Pods-VeeWeather-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VeeWeather/Pods-VeeWeather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C202895888B3B12E4EAC67F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VeeWeather-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01E12DF926F29A6400EC0D7E /* Sources */ = {
@@ -287,6 +356,7 @@
 		};
 		01E12E1526F29A6600EC0D7E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C1134AF66B096CEA29C21A1 /* Pods-VeeWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,6 +376,7 @@
 		};
 		01E12E1626F29A6600EC0D7E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC672F5F10549F5603A3A195 /* Pods-VeeWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
