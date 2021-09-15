@@ -7,14 +7,32 @@
 
 import UIKit
 import CoreData
+import SwiftyBeaver
+let log = SwiftyBeaver.self
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    struct K {
+        static let debugFormat = "$DHH:mm:ss$d $L $M"
+        static let verbose = "💜 VERBOSE"
+        static let debug = "💚 DEBUG"
+        static let warning = "💛 WARNING"
+        static let info = "💙 INFO"
+        static let error = "❤️ ERROR"
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // MARK: - SwiftyBeaver
+        let console = ConsoleDestination()
+        console.format = K.debugFormat
+        console.levelString.verbose = K.verbose
+        console.levelString.debug = K.debug
+        console.levelString.info = K.info
+        console.levelString.warning = K.warning
+        console.levelString.error = K.error
+        log.addDestination(console)
+        
         return true
     }
 

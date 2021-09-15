@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -65,16 +65,80 @@
 		01E12DFF26F29A6400EC0D7E /* VeeWeather */ = {
 			isa = PBXGroup;
 			children = (
+				01E12E1D26F29FE900EC0D7E /* Ressources */,
+				01E12E1726F29F4D00EC0D7E /* Delegate */,
+				01E12E1826F29F6800EC0D7E /* View */,
+				01E12E1926F29F7100EC0D7E /* ViewModel */,
+				01E12E1B26F29F8C00EC0D7E /* Model */,
+				01E12E1A26F29F7D00EC0D7E /* Network */,
+				01E12E1C26F29FD100EC0D7E /* Config */,
+			);
+			path = VeeWeather;
+			sourceTree = "<group>";
+		};
+		01E12E1726F29F4D00EC0D7E /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
 				01E12E0026F29A6400EC0D7E /* AppDelegate.swift */,
 				01E12E0226F29A6400EC0D7E /* SceneDelegate.swift */,
-				01E12E0426F29A6400EC0D7E /* ViewController.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		01E12E1826F29F6800EC0D7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01E12E1E26F2A00900EC0D7E /* LaunchScreen */,
 				01E12E0626F29A6400EC0D7E /* Main.storyboard */,
-				01E12E0C26F29A6600EC0D7E /* Assets.xcassets */,
-				01E12E0E26F29A6600EC0D7E /* LaunchScreen.storyboard */,
+				01E12E0426F29A6400EC0D7E /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01E12E1926F29F7100EC0D7E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01E12E1A26F29F7D00EC0D7E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		01E12E1B26F29F8C00EC0D7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		01E12E1C26F29FD100EC0D7E /* Config */ = {
+			isa = PBXGroup;
+			children = (
 				01E12E1126F29A6600EC0D7E /* Info.plist */,
 				01E12E0926F29A6400EC0D7E /* VeeWeather.xcdatamodeld */,
 			);
-			path = VeeWeather;
+			path = Config;
+			sourceTree = "<group>";
+		};
+		01E12E1D26F29FE900EC0D7E /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				01E12E0C26F29A6600EC0D7E /* Assets.xcassets */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		01E12E1E26F2A00900EC0D7E /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				01E12E0E26F29A6600EC0D7E /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		0CDE39BE97C1944FD2549BC7 /* Pods */ = {
@@ -83,7 +147,6 @@
 				1C1134AF66B096CEA29C21A1 /* Pods-VeeWeather.debug.xcconfig */,
 				CC672F5F10549F5603A3A195 /* Pods-VeeWeather.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -362,7 +425,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6HLHYZ382H;
-				INFOPLIST_FILE = VeeWeather/Info.plist;
+				INFOPLIST_FILE = VeeWeather/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -382,7 +445,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6HLHYZ382H;
-				INFOPLIST_FILE = VeeWeather/Info.plist;
+				INFOPLIST_FILE = VeeWeather/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
