@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,16 +14,62 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeLight" translatesAutoresizingMaskIntoConstraints="NO" id="845-ae-Iqn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhM-uQ-9gO">
+                                <rect key="frame" x="0.0" y="521" width="414" height="375"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weekarea" translatesAutoresizingMaskIntoConstraints="NO" id="7gt-7a-LLk">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="375"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7gt-7a-LLk" secondAttribute="trailing" id="11r-5o-H4Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="7gt-7a-LLk" secondAttribute="bottom" id="EOL-Eb-dLo"/>
+                                    <constraint firstAttribute="height" constant="375" id="KuO-un-WSZ"/>
+                                    <constraint firstItem="7gt-7a-LLk" firstAttribute="top" secondItem="bhM-uQ-9gO" secondAttribute="top" id="cTf-lO-fjF"/>
+                                    <constraint firstItem="7gt-7a-LLk" firstAttribute="leading" secondItem="bhM-uQ-9gO" secondAttribute="leading" id="wUU-ce-d86"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfE-Sr-7Dr">
+                                <rect key="frame" x="303" y="489" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="KIF-BD-s4d"/>
+                                    <constraint firstAttribute="height" constant="64" id="MAb-cQ-Wf2"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vfE-Sr-7Dr" firstAttribute="bottom" secondItem="bhM-uQ-9gO" secondAttribute="top" constant="32" id="6BL-gs-sdB"/>
+                            <constraint firstItem="845-ae-Iqn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ak3-gm-r7e"/>
+                            <constraint firstItem="bhM-uQ-9gO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DTy-pr-0EJ"/>
+                            <constraint firstAttribute="trailing" secondItem="845-ae-Iqn" secondAttribute="trailing" id="EnW-1e-wU3"/>
+                            <constraint firstAttribute="trailing" secondItem="vfE-Sr-7Dr" secondAttribute="trailing" constant="47" id="Si6-1c-v2h"/>
+                            <constraint firstAttribute="bottom" secondItem="bhM-uQ-9gO" secondAttribute="bottom" id="XaJ-4w-cao"/>
+                            <constraint firstAttribute="trailing" secondItem="bhM-uQ-9gO" secondAttribute="trailing" id="e1W-cb-VMe"/>
+                            <constraint firstAttribute="bottom" secondItem="845-ae-Iqn" secondAttribute="bottom" id="mMU-bR-5EJ"/>
+                            <constraint firstItem="845-ae-Iqn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nfC-3S-3VU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addCountryButton" destination="vfE-Sr-7Dr" id="GlB-hQ-cDE"/>
+                        <outlet property="backgroundImage" destination="845-ae-Iqn" id="np6-Wz-B8E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391" y="-35"/>
+            <point key="canvasLocation" x="-391.304347826087" y="-35.491071428571423"/>
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="64" height="64"/>
+        <image name="homeLight" width="414" height="896"/>
+        <image name="weekarea" width="414" height="364.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

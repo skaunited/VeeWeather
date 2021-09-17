@@ -17,6 +17,7 @@
 		018FE7F526F527AE0080040B /* Storyboards-scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018FE7F426F527AE0080040B /* Storyboards-scenes.swift */; };
 		018FE7F726F52B670080040B /* DIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018FE7F626F52B670080040B /* DIManager.swift */; };
 		018FE7F926F5301A0080040B /* RouterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018FE7F826F5301A0080040B /* RouterImp.swift */; };
+		018FE7FB26F554CD0080040B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018FE7FA26F554CD0080040B /* Constants.swift */; };
 		01E12E0126F29A6400EC0D7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E12E0026F29A6400EC0D7E /* AppDelegate.swift */; };
 		01E12E0526F29A6400EC0D7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E12E0426F29A6400EC0D7E /* ViewController.swift */; };
 		01E12E0826F29A6400EC0D7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E12E0626F29A6400EC0D7E /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		018FE7F426F527AE0080040B /* Storyboards-scenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboards-scenes.swift"; sourceTree = "<group>"; };
 		018FE7F626F52B670080040B /* DIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIManager.swift; sourceTree = "<group>"; };
 		018FE7F826F5301A0080040B /* RouterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterImp.swift; sourceTree = "<group>"; };
+		018FE7FA26F554CD0080040B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		01E12DFD26F29A6400EC0D7E /* VeeWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeeWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E12E0026F29A6400EC0D7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01E12E0426F29A6400EC0D7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				01E12E0C26F29A6600EC0D7E /* Assets.xcassets */,
 				01E12E1F26F2A8F800EC0D7E /* Story.swift */,
 				018FE7F426F527AE0080040B /* Storyboards-scenes.swift */,
+				018FE7FA26F554CD0080040B /* Constants.swift */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				018FE7E526F51F700080040B /* BaseCoordinatorProtocol.swift in Sources */,
 				018FE7F726F52B670080040B /* DIManager.swift in Sources */,
 				018FE7EA26F520740080040B /* Router.swift in Sources */,
+				018FE7FB26F554CD0080040B /* Constants.swift in Sources */,
 				018FE7E726F5200C0080040B /* VeeWeatherCoordinator.swift in Sources */,
 				01E12E0126F29A6400EC0D7E /* AppDelegate.swift in Sources */,
 				01E12E2226F2AAA600EC0D7E /* ViewControllerModel.swift in Sources */,

@@ -22,7 +22,7 @@ open class VeeWeatherCoordinator: BaseCoordinator {
     open override func start() {
         if let home = diManager.controller(for: .home) as? ViewController {
             home.viewModel = container.resolve(ViewControllerModelProtocol.self)
-            router.setRootModule(home)
+            router.setRootModule(home, hideBar: true)
         }
     }
 }
