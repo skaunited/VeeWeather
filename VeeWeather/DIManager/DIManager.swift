@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import Swinject
+
+
+final class DIManager {
+
+}
+

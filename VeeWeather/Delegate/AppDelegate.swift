@@ -7,11 +7,13 @@
 
 import UIKit
 import CoreData
+import Swinject
 import SwiftyBeaver
 let log = SwiftyBeaver.self
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    // MARK: - STATIC K
     struct K {
         static let debugFormat = "$DHH:mm:ss$d $L $M"
         static let verbose = "💜 VERBOSE"
@@ -20,7 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         static let info = "💙 INFO"
         static let error = "❤️ ERROR"
     }
-
+    public var coordinator: BaseCoordinatorProtocol?
+    var window: UIWindow?
+    var container: Container?
+    lazy var router = RouterImp(rootController: self.rootController)
+    
+    var rootController: UINavigationController {
+        return (self.window?.rootViewController as? UINavigationController)!
+    }
+    private lazy var appCoordinator: VeeWeatherCoordinator? = self.makeCoordinator()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // MARK: - SwiftyBeaver
@@ -32,24 +43,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         console.levelString.warning = K.warning
         console.levelString.error = K.error
         log.addDestination(console)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        if self.window?.rootViewController == nil {
+            self.window?.rootViewController = UINavigationController()
+        }
         
+        container = Container {_ in}
+        appCoordinator?.start()
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -94,6 +97,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    // MARK: - private methods
+    private func makeCoordinator() -> VeeWeatherCoordinator? {
+        guard let container = container else { return nil }
+        let coordinator = VeeWeatherCoordinator(
+            router: router,
+            container: container
+        )
+        return coordinator
+    }
+    
 }
 

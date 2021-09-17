@@ -10,5 +10,6 @@ target 'VeeWeather' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Swinject'
+  pod 'SwiftGen'
 
 end
