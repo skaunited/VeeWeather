@@ -23,9 +23,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        viewModel?.getDebugTest()
         setupTableView()
         setupUI()
+        viewModel?.getWeatherData()
     }
 
     private func setupUI(){

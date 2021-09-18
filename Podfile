@@ -11,5 +11,6 @@ target 'VeeWeather' do
   pod 'RxCocoa'
   pod 'Swinject'
   pod 'SwiftGen'
+  pod 'Alamofire'
 
 end

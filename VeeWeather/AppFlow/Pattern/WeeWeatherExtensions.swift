@@ -27,3 +27,15 @@ extension UITableView {
         return cell
     }
 }
+
+/**
+ Extension of optional, gonna working if the the typeof( ) of the value == String
+ - returns: Self, if the value, not nil & "" if the value is nil
+ */
+extension Optional where Wrapped == String {
+    var orEmpty: String { self ?? "" }
+}
+
+extension UIColor {
+    static let defaultBlue = #colorLiteral(red: 0.231372549, green: 0.4039215686, blue: 0.737254902, alpha: 1)
+}

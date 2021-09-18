@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         static let warning = "💛 WARNING"
         static let info = "💙 INFO"
         static let error = "❤️ ERROR"
+        static let token = "18bcbc79a7758a7b9832571bd2962c0a"
     }
     public var coordinator: BaseCoordinatorProtocol?
     var window: UIWindow?
@@ -49,6 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if self.window?.rootViewController == nil {
             self.window?.rootViewController = UINavigationController()
         }
+        DefaultUtils.sharedInstance.token = K.token
+        DefaultUtils.sharedInstance.syncronise()
         
         container = Container {_ in}
         appCoordinator?.start()
