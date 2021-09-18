@@ -21,6 +21,9 @@
 		018FE7FE26F5D69F0080040B /* Caviar Dreams Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 018FE7FD26F5D69F0080040B /* Caviar Dreams Bold.ttf */; };
 		018FE80026F5D6B10080040B /* Caviar Dreams Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 018FE7FF26F5D6B10080040B /* Caviar Dreams Regular.ttf */; };
 		018FE80226F5D6CA0080040B /* futura-pt-book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 018FE80126F5D6CA0080040B /* futura-pt-book.otf */; };
+		018FE80426F5DC340080040B /* ViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018FE80326F5DC340080040B /* ViewController+UITableView.swift */; };
+		018FE80726F5DC9F0080040B /* WeekDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018FE80626F5DC9F0080040B /* WeekDataTableViewCell.swift */; };
+		018FE80A26F5E0640080040B /* WeeWeatherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018FE80926F5E0640080040B /* WeeWeatherExtensions.swift */; };
 		01E12E0126F29A6400EC0D7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E12E0026F29A6400EC0D7E /* AppDelegate.swift */; };
 		01E12E0526F29A6400EC0D7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E12E0426F29A6400EC0D7E /* ViewController.swift */; };
 		01E12E0826F29A6400EC0D7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E12E0626F29A6400EC0D7E /* Main.storyboard */; };
@@ -47,6 +50,9 @@
 		018FE7FD26F5D69F0080040B /* Caviar Dreams Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caviar Dreams Bold.ttf"; sourceTree = "<group>"; };
 		018FE7FF26F5D6B10080040B /* Caviar Dreams Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caviar Dreams Regular.ttf"; sourceTree = "<group>"; };
 		018FE80126F5D6CA0080040B /* futura-pt-book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "futura-pt-book.otf"; sourceTree = "<group>"; };
+		018FE80326F5DC340080040B /* ViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UITableView.swift"; sourceTree = "<group>"; };
+		018FE80626F5DC9F0080040B /* WeekDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDataTableViewCell.swift; sourceTree = "<group>"; };
+		018FE80926F5E0640080040B /* WeeWeatherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeWeatherExtensions.swift; sourceTree = "<group>"; };
 		01E12DFD26F29A6400EC0D7E /* VeeWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeeWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E12E0026F29A6400EC0D7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01E12E0426F29A6400EC0D7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +127,22 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		018FE80526F5DC7F0080040B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				018FE80626F5DC9F0080040B /* WeekDataTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		018FE80826F5E0450080040B /* Pattern */ = {
+			isa = PBXGroup;
+			children = (
+				018FE80926F5E0640080040B /* WeeWeatherExtensions.swift */,
+			);
+			path = Pattern;
+			sourceTree = "<group>";
+		};
 		01E12DF426F29A6400EC0D7E = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +169,7 @@
 				018FE7E826F520670080040B /* Router */,
 				018FE7E126F51F120080040B /* Coordinator */,
 				01E12E1D26F29FE900EC0D7E /* Ressources */,
+				018FE80826F5E0450080040B /* Pattern */,
 				01E12E1726F29F4D00EC0D7E /* Delegate */,
 				01E12E1826F29F6800EC0D7E /* View */,
 				01E12E1926F29F7100EC0D7E /* ViewModel */,
@@ -168,9 +191,11 @@
 		01E12E1826F29F6800EC0D7E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				018FE80526F5DC7F0080040B /* Cell */,
 				01E12E1E26F2A00900EC0D7E /* LaunchScreen */,
 				01E12E0626F29A6400EC0D7E /* Main.storyboard */,
 				01E12E0426F29A6400EC0D7E /* ViewController.swift */,
+				018FE80326F5DC340080040B /* ViewController+UITableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,10 +407,12 @@
 				018FE7F926F5301A0080040B /* RouterImp.swift in Sources */,
 				01E12E0526F29A6400EC0D7E /* ViewController.swift in Sources */,
 				018FE7E326F51F2C0080040B /* BaseCoordinator.swift in Sources */,
+				018FE80426F5DC340080040B /* ViewController+UITableView.swift in Sources */,
 				018FE7E526F51F700080040B /* BaseCoordinatorProtocol.swift in Sources */,
 				018FE7F726F52B670080040B /* DIManager.swift in Sources */,
 				018FE7EA26F520740080040B /* Router.swift in Sources */,
 				018FE7FB26F554CD0080040B /* Constants.swift in Sources */,
+				018FE80A26F5E0640080040B /* WeeWeatherExtensions.swift in Sources */,
 				018FE7E726F5200C0080040B /* VeeWeatherCoordinator.swift in Sources */,
 				01E12E0126F29A6400EC0D7E /* AppDelegate.swift in Sources */,
 				01E12E2226F2AAA600EC0D7E /* ViewControllerModel.swift in Sources */,
@@ -394,6 +421,7 @@
 				018FE7ED26F5209E0080040B /* Presentable.swift in Sources */,
 				018FE7F526F527AE0080040B /* Storyboards-scenes.swift in Sources */,
 				01E12E0B26F29A6400EC0D7E /* VeeWeather.xcdatamodeld in Sources */,
+				018FE80726F5DC9F0080040B /* WeekDataTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

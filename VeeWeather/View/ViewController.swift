@@ -15,6 +15,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var addCountryButton: UIButton!
+    @IBOutlet weak var weatherTableView: UITableView!
+    
     // MARK: - Global
     var viewModel: ViewControllerModelProtocol?
     
@@ -22,15 +24,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         viewModel?.getDebugTest()
+        setupTableView()
         setupUI()
     }
 
-    
     private func setupUI(){
         addCountryButton.layer.shadowColor = shadowColor.cgColor
         addCountryButton.layer.shadowOffset = CGSize(width: 5, height: 5)
         addCountryButton.layer.shadowRadius = 5
         addCountryButton.layer.shadowOpacity = 0.26
+    }
+    
+    private func setupTableView(){
+        weatherTableView.dataSource = self
+        weatherTableView.delegate = self
     }
 
 }
