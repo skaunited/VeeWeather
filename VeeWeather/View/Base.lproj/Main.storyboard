@@ -92,14 +92,6 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfE-Sr-7Dr">
-                                <rect key="frame" x="303" y="489" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="KIF-BD-s4d"/>
-                                    <constraint firstAttribute="height" constant="64" id="MAb-cQ-Wf2"/>
-                                </constraints>
-                                <state key="normal" image="add"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhM-uQ-9gO">
                                 <rect key="frame" x="0.0" y="521" width="414" height="375"/>
                                 <subviews>
@@ -188,6 +180,14 @@
                                     <constraint firstItem="7gt-7a-LLk" firstAttribute="leading" secondItem="bhM-uQ-9gO" secondAttribute="leading" id="wUU-ce-d86"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfE-Sr-7Dr">
+                                <rect key="frame" x="303" y="489" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="KIF-BD-s4d"/>
+                                    <constraint firstAttribute="height" constant="64" id="MAb-cQ-Wf2"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
