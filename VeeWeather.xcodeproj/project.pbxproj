@@ -18,6 +18,9 @@
 		018FE7F726F52B670080040B /* DIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018FE7F626F52B670080040B /* DIManager.swift */; };
 		018FE7F926F5301A0080040B /* RouterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018FE7F826F5301A0080040B /* RouterImp.swift */; };
 		018FE7FB26F554CD0080040B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018FE7FA26F554CD0080040B /* Constants.swift */; };
+		018FE7FE26F5D69F0080040B /* Caviar Dreams Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 018FE7FD26F5D69F0080040B /* Caviar Dreams Bold.ttf */; };
+		018FE80026F5D6B10080040B /* Caviar Dreams Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 018FE7FF26F5D6B10080040B /* Caviar Dreams Regular.ttf */; };
+		018FE80226F5D6CA0080040B /* futura-pt-book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 018FE80126F5D6CA0080040B /* futura-pt-book.otf */; };
 		01E12E0126F29A6400EC0D7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E12E0026F29A6400EC0D7E /* AppDelegate.swift */; };
 		01E12E0526F29A6400EC0D7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E12E0426F29A6400EC0D7E /* ViewController.swift */; };
 		01E12E0826F29A6400EC0D7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E12E0626F29A6400EC0D7E /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 		018FE7F626F52B670080040B /* DIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIManager.swift; sourceTree = "<group>"; };
 		018FE7F826F5301A0080040B /* RouterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterImp.swift; sourceTree = "<group>"; };
 		018FE7FA26F554CD0080040B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		018FE7FD26F5D69F0080040B /* Caviar Dreams Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caviar Dreams Bold.ttf"; sourceTree = "<group>"; };
+		018FE7FF26F5D6B10080040B /* Caviar Dreams Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caviar Dreams Regular.ttf"; sourceTree = "<group>"; };
+		018FE80126F5D6CA0080040B /* futura-pt-book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "futura-pt-book.otf"; sourceTree = "<group>"; };
 		01E12DFD26F29A6400EC0D7E /* VeeWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeeWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E12E0026F29A6400EC0D7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01E12E0426F29A6400EC0D7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,16 @@
 				018FE7F626F52B670080040B /* DIManager.swift */,
 			);
 			path = DIManager;
+			sourceTree = "<group>";
+		};
+		018FE7FC26F5D6700080040B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				018FE80126F5D6CA0080040B /* futura-pt-book.otf */,
+				018FE7FD26F5D69F0080040B /* Caviar Dreams Bold.ttf */,
+				018FE7FF26F5D6B10080040B /* Caviar Dreams Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		01E12DF426F29A6400EC0D7E = {
@@ -193,6 +209,7 @@
 		01E12E1D26F29FE900EC0D7E /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				018FE7FC26F5D6700080040B /* Fonts */,
 				01E12E0C26F29A6600EC0D7E /* Assets.xcassets */,
 				01E12E1F26F2A8F800EC0D7E /* Story.swift */,
 				018FE7F426F527AE0080040B /* Storyboards-scenes.swift */,
@@ -287,7 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				01E12E1026F29A6600EC0D7E /* LaunchScreen.storyboard in Resources */,
+				018FE80226F5D6CA0080040B /* futura-pt-book.otf in Resources */,
+				018FE7FE26F5D69F0080040B /* Caviar Dreams Bold.ttf in Resources */,
 				01E12E0D26F29A6600EC0D7E /* Assets.xcassets in Resources */,
+				018FE80026F5D6B10080040B /* Caviar Dreams Regular.ttf in Resources */,
 				01E12E0826F29A6400EC0D7E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
