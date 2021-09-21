@@ -14,8 +14,8 @@
   </p>
 </p>
 
-<p align="row">
-<img src= "https://github.com/skaunited/VeeWeather/blob/main/VeeWeather/Demo/demo.gif" width="500" >
+<p align="center">
+<img src= "https://github.com/skaunited/VeeWeather/blob/main/VeeWeather/Demo/demo.gif" width="400" >
 </p>
 
 ## Features
@@ -55,7 +55,8 @@ target 'VeeWeather' do
 
 Skander BAHRI – [@KingUnited009](https://twitter.com/KingUnited009) – s.bahri@codevelop.fr
 
-**VeWeather** Distributed without ``LICENSE``, feel free to use it, do not hesitate to contact me if you have any question.
+**VeWeather** Distributed without ``LICENSE``, feel free to use it.)
+Do not hesitate to contact me if you have any questions.  
 
 [https://github.com/skaunited/](https://github.com/dbader/)
 
