@@ -2,7 +2,7 @@
 //  ListEntity+CoreDataProperties.swift
 //  VeeWeather
 //
-//  Created by Skander Bahri on 19/09/2021.
+//  Created by Skander Bahri on 21/09/2021.
 //
 //
 
@@ -17,15 +17,15 @@ extension ListEntity {
     }
 
     @NSManaged public var dt: Int64
-    @NSManaged public var visibility: Int64
-    @NSManaged public var pop: Double
     @NSManaged public var dtTxt: String?
-    @NSManaged public var weather: [WeatherEntity]?
-    @NSManaged public var main: MainClassEntity?
+    @NSManaged public var pop: Double
+    @NSManaged public var visibility: Int64
     @NSManaged public var clouds: CloudsEntity?
-    @NSManaged public var wind: WindEntity?
-    @NSManaged public var sys: SysEntity?
+    @NSManaged public var main: MainClassEntity?
     @NSManaged public var rain: RainEntity?
+    @NSManaged public var sys: SysEntity?
+    @NSManaged public var weather: WeatherEntity?
+    @NSManaged public var wind: WindEntity?
 
 }
 

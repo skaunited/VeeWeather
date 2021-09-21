@@ -2,7 +2,7 @@
 //  WindEntity+CoreDataProperties.swift
 //  VeeWeather
 //
-//  Created by Skander Bahri on 19/09/2021.
+//  Created by Skander Bahri on 21/09/2021.
 //
 //
 
@@ -16,9 +16,9 @@ extension WindEntity {
         return NSFetchRequest<WindEntity>(entityName: "WindEntity")
     }
 
-    @NSManaged public var speed: Double
     @NSManaged public var deg: Int64
     @NSManaged public var gust: Double
+    @NSManaged public var speed: Double
 
 }
 

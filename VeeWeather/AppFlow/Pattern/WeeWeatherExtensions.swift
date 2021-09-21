@@ -39,3 +39,9 @@ extension Optional where Wrapped == String {
 extension UIColor {
     static let defaultBlue = #colorLiteral(red: 0.231372549, green: 0.4039215686, blue: 0.737254902, alpha: 1)
 }
+
+extension Dictionary {
+    subscript(i: Int) -> (key: Key, value: Value) {
+        return self[index(startIndex, offsetBy: i)]
+    }
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CityEntity" representedClassName="CityEntity" isAbstract="YES" syncable="YES">
+    <entity name="CityEntity" representedClassName="CityEntity" syncable="YES">
         <attribute name="country" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -10,34 +10,26 @@
         <attribute name="timezone" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="coord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoordEntity"/>
     </entity>
-    <entity name="CloudsEntity" representedClassName="CloudsEntity" isAbstract="YES" syncable="YES">
+    <entity name="CloudsEntity" representedClassName="CloudsEntity" syncable="YES">
         <attribute name="all" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="CoordEntity" representedClassName="CoordEntity" isAbstract="YES" syncable="YES">
+    <entity name="CoordEntity" representedClassName="CoordEntity" syncable="YES">
         <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="DescriptionEntity" representedClassName="DescriptionEntity" isAbstract="YES" syncable="YES">
-        <attribute name="brokenClouds" optional="YES" attributeType="String"/>
-        <attribute name="clearSky" optional="YES" attributeType="String"/>
-        <attribute name="fewClouds" optional="YES" attributeType="String"/>
-        <attribute name="lightRain" optional="YES" attributeType="String"/>
-        <attribute name="overcastClouds" optional="YES" attributeType="String"/>
-        <attribute name="scatteredClouds" optional="YES" attributeType="String"/>
-    </entity>
-    <entity name="ListEntity" representedClassName="ListEntity" isAbstract="YES" syncable="YES">
+    <entity name="ListEntity" representedClassName="ListEntity" syncable="YES">
         <attribute name="dt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="dtTxt" optional="YES" attributeType="String"/>
         <attribute name="pop" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="visibility" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="weather" optional="YES" attributeType="Transformable" customClassName="[WeatherEntity]"/>
         <relationship name="clouds" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CloudsEntity"/>
         <relationship name="main" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MainClassEntity"/>
         <relationship name="rain" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RainEntity"/>
         <relationship name="sys" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SysEntity"/>
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="WeatherEntity"/>
         <relationship name="wind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WindEntity"/>
     </entity>
-    <entity name="MainClassEntity" representedClassName="MainClassEntity" isAbstract="YES" syncable="YES">
+    <entity name="MainClassEntity" representedClassName="MainClassEntity" syncable="YES">
         <attribute name="feelsLike" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="grndLevel" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="humidity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -48,52 +40,45 @@
         <attribute name="tempMax" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="tempMin" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="MainEnumEntity" representedClassName="MainEnumEntity" isAbstract="YES" syncable="YES">
-        <attribute name="clear" optional="YES" attributeType="String"/>
-        <attribute name="clouds" optional="YES" attributeType="String"/>
-        <attribute name="rain" optional="YES" attributeType="String"/>
-    </entity>
-    <entity name="PodEntity" representedClassName="PodEntity" isAbstract="YES" syncable="YES">
+    <entity name="PodEntity" representedClassName="PodEntity" syncable="YES">
         <attribute name="d" optional="YES" attributeType="String"/>
         <attribute name="n" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="RainEntity" representedClassName="RainEntity" isAbstract="YES" syncable="YES">
+    <entity name="RainEntity" representedClassName="RainEntity" syncable="YES">
         <attribute name="the3H" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="SysEntity" representedClassName="SysEntity" isAbstract="YES" syncable="YES">
+    <entity name="SysEntity" representedClassName="SysEntity" syncable="YES">
         <relationship name="pod" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PodEntity"/>
     </entity>
-    <entity name="WeatherEntity" representedClassName="WeatherEntity" isAbstract="YES" syncable="YES">
+    <entity name="WeatherEntity" representedClassName="WeatherEntity" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="main" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MainEnumEntity"/>
-        <relationship name="weatherDescription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DescriptionEntity"/>
+        <attribute name="main" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="WeatherModelEntity" representedClassName="WeatherModelEntity" isAbstract="YES" syncable="YES">
+    <entity name="WeatherModelEntity" representedClassName="WeatherModelEntity" syncable="YES">
         <attribute name="cnt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="cod" optional="YES" attributeType="String"/>
-        <attribute name="list" optional="YES" attributeType="Transformable" customClassName="[ListEntity]"/>
+        <attribute name="list" optional="YES" attributeType="Transformable" valueTransformerName="WeatherModelEntityTransformer" customClassName="[ListEntity]"/>
         <attribute name="message" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CityEntity"/>
     </entity>
-    <entity name="WindEntity" representedClassName="WindEntity" isAbstract="YES" syncable="YES">
+    <entity name="WindEntity" representedClassName="WindEntity" syncable="YES">
         <attribute name="deg" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="gust" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="WeatherModelEntity" positionX="-310.3907470703125" positionY="-439.8125" width="128" height="118"/>
-        <element name="CityEntity" positionX="-586.7239379882812" positionY="-223.0223388671875" width="168.8057861328125" height="163"/>
-        <element name="CoordEntity" positionX="-574.2034912109375" positionY="-27.23959350585938" width="128" height="73"/>
-        <element name="MainClassEntity" positionX="110.55517578125" positionY="97.82078552246094" width="128" height="178"/>
-        <element name="DescriptionEntity" positionX="-112.0712890625" positionY="317.0508422851562" width="128" height="133"/>
-        <element name="MainEnumEntity" positionX="-253.869140625" positionY="317.4122314453125" width="128" height="88"/>
+        <element name="CityEntity" positionX="-586.7239379882812" positionY="-223.0223388671875" width="168.8057861328125" height="149"/>
+        <element name="CloudsEntity" positionX="250.576904296875" positionY="100.3042602539062" width="128" height="44"/>
+        <element name="CoordEntity" positionX="-574.2034912109375" positionY="-27.23959350585938" width="128" height="59"/>
+        <element name="ListEntity" positionX="-107.678466796875" positionY="-414.0102233886719" width="128" height="193"/>
+        <element name="MainClassEntity" positionX="110.55517578125" positionY="97.82078552246094" width="128" height="164"/>
+        <element name="PodEntity" positionX="-462.7974243164062" positionY="180.3309326171875" width="128" height="59"/>
+        <element name="RainEntity" positionX="-313.464599609375" positionY="93.27777099609375" width="128" height="44"/>
+        <element name="SysEntity" positionX="-451.580078125" positionY="91.13507080078125" width="128" height="44"/>
         <element name="WeatherEntity" positionX="-177.0225830078125" positionY="94.18695068359375" width="128" height="103"/>
-        <element name="CloudsEntity" positionX="250.576904296875" positionY="100.3042602539062" width="128" height="58"/>
-        <element name="WindEntity" positionX="-31.36932373046875" positionY="95.2694091796875" width="128" height="88"/>
-        <element name="PodEntity" positionX="-462.7974243164062" positionY="180.3309326171875" width="128" height="73"/>
-        <element name="SysEntity" positionX="-451.580078125" positionY="91.13507080078125" width="128" height="58"/>
-        <element name="RainEntity" positionX="-313.464599609375" positionY="93.27777099609375" width="128" height="58"/>
-        <element name="ListEntity" positionX="-109.0277099609375" positionY="-249.9283752441406" width="128" height="193"/>
+        <element name="WeatherModelEntity" positionX="-334.7508544921875" positionY="-489.7880096435547" width="128" height="118"/>
+        <element name="WindEntity" positionX="-31.36932373046875" positionY="95.2694091796875" width="128" height="74"/>
     </elements>
 </model>

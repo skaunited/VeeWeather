@@ -10,18 +10,16 @@ import CoreData
 
 class CoreDataManager: NSObject{
     
+    struct K {
+        static let dateFormatter = "yyyy-MM-dd HH:mm:ss"
+    }
+    
     private override init() {
         super.init()
-        
         applicationLibraryDirectory()
     }
     // Create a shared Instance
-    static let _shared = CoreDataManager()
-    
-    // Shared Function
-    class func shared() -> CoreDataManager{
-        return _shared
-    }
+    static let sharedInstance = CoreDataManager()
     
     // Get the location where the core data DB is stored
     
@@ -42,7 +40,6 @@ class CoreDataManager: NSObject{
     
     // Get the managed Object Context
     lazy var managedObjectContext = {
-        
         return self.persistentContainer.viewContext
     }()
     // Persistent Container
@@ -53,7 +50,7 @@ class CoreDataManager: NSObject{
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "JSONToCoreDataAgain")
+        let container = NSPersistentContainer(name: "VeeWeather")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -73,15 +70,17 @@ class CoreDataManager: NSObject{
         return container
     }()
     
-    func prepare(dataForSaving: [WeatherModel]){
-        
+    func prepare(dataForSaving: WeatherModel){
         // loop through all the data received from the Web and then convert to managed object and save them
-        _ = dataForSaving.map{self.createWeatherModelEntityFrom(weatherModel: $0)}
-        saveData()
+        //let _ = self.createListEntityFrom(model: dataForSaving)
+        //let _ = self.createWeatherModelEntityFrom(weatherModel: dataForSaving)
+        self.createWeatherMainEntityFrom(weatherModel: dataForSaving)
+        self.createCityEntityFrom(city: dataForSaving.city)
+        saveData(dataForSaving: dataForSaving)
     }
     
     // Save the data in Database
-    func saveData(){
+    func saveData(dataForSaving: WeatherModel){
         
         let context = self.managedObjectContext
         if context.hasChanges {
@@ -93,6 +92,97 @@ class CoreDataManager: NSObject{
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    func retrieveData() -> [DateComponents:[ListEntity]]? {
+        let managedContext = self.managedObjectContext
+        do {
+            let result: [ListEntity] = try managedContext.fetch(ListEntity.fetchRequest())
+            
+            let groupDic = Dictionary(grouping: result) { (listItem) -> DateComponents in
+                let date = Calendar.current.dateComponents([.day, .year, .month], from: (convertDateStringToDate(formatter: K.dateFormatter,
+                                                                                                                 dateString: listItem.dtTxt.orEmpty)))
+                return date
+            }
+            return groupDic
+        } catch (let error){
+            log.error("Failed Retrive: \(error)")
+            return nil
+        }
+    }
+    
+    func retrieveCityData() -> [CityEntity]? {
+        let managedContext = self.managedObjectContext
+        do {
+            let result: [CityEntity] = try managedContext.fetch(CityEntity.fetchRequest())
+            return result
+        } catch (let error){
+            log.error("Failed Retrive: \(error)")
+            return nil
+        }
+    }
+    
+    
+    func deleteData(){
+        let fetchWeatherModelRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "WeatherModelEntity")
+        let deleteWeatherModelRequest = NSBatchDeleteRequest(fetchRequest: fetchWeatherModelRequest)
+
+        let fetchCityEntityRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CityEntity")
+        let deleteCityEntityRequest = NSBatchDeleteRequest(fetchRequest: fetchCityEntityRequest)
+        
+        let fetchCloudsEntityRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CloudsEntity")
+        let deleteCloudsEntityRequest = NSBatchDeleteRequest(fetchRequest: fetchCloudsEntityRequest)
+        
+        let fetchCoordEntityRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CoordEntity")
+        let deleteCoordEntityRequest = NSBatchDeleteRequest(fetchRequest: fetchCoordEntityRequest)
+        
+        let fetchListEntityRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "ListEntity")
+        let deleteListEntityRequest = NSBatchDeleteRequest(fetchRequest: fetchListEntityRequest)
+        
+        let fetchMainClassEntityRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "MainClassEntity")
+        let deleteMainClassEntityRequest = NSBatchDeleteRequest(fetchRequest: fetchMainClassEntityRequest)
+        
+        let fetchPodEntityRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "PodEntity")
+        let deletePodEntityRequest = NSBatchDeleteRequest(fetchRequest: fetchPodEntityRequest)
+        
+        let fetchRainEntityRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "RainEntity")
+        let deleteRainEntityRequest = NSBatchDeleteRequest(fetchRequest: fetchRainEntityRequest)
+        
+        let fetchWindEntityRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "WindEntity")
+        let deleteWindEntityRequest = NSBatchDeleteRequest(fetchRequest: fetchWindEntityRequest)
+        
+        let fetchSysEntityRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "SysEntity")
+        let deleteSysEntityRequest = NSBatchDeleteRequest(fetchRequest: fetchSysEntityRequest)
+        
+        let fetchWeatherEntityRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "WeatherEntity")
+        let deleteWeatherEntityRequest = NSBatchDeleteRequest(fetchRequest: fetchWeatherEntityRequest)
+        
+        do {
+            try self.managedObjectContext.execute(deleteWeatherModelRequest)
+            
+            try self.managedObjectContext.execute(deleteCityEntityRequest)
+            try self.managedObjectContext.execute(deleteCloudsEntityRequest)
+            
+            try self.managedObjectContext.execute(deleteCoordEntityRequest)
+            
+            try self.managedObjectContext.execute(deleteListEntityRequest)
+            
+            try self.managedObjectContext.execute(deleteMainClassEntityRequest)
+            
+            try self.managedObjectContext.execute(deletePodEntityRequest)
+            
+            try self.managedObjectContext.execute(deleteRainEntityRequest)
+            
+            try self.managedObjectContext.execute(deleteWindEntityRequest)
+            
+            try self.managedObjectContext.execute(deleteSysEntityRequest)
+            
+            try self.managedObjectContext.execute(deleteWeatherEntityRequest)
+            
+        } catch let error as NSError {
+            // TODO: handle the error
+            fatalError("Unresolved error \(error), \(error.userInfo)")
         }
     }
     
@@ -113,6 +203,14 @@ class CoreDataManager: NSObject{
             }
         }
     }
+    
+   public func fetechData()  {
+        let contractors: [ListEntity] = WeatherModelEntity(context: self.managedObjectContext).value(forKey: "list") as! [ListEntity]
+
+        for person in contractors {
+            print(person.dt)
+        }
+    }
     private func createWeatherModelEntityFrom(weatherModel: WeatherModel) -> WeatherModelEntity?{
         guard
             let cod = weatherModel.cod,
@@ -125,7 +223,6 @@ class CoreDataManager: NSObject{
         }
         
         var listEntityArray : [ListEntity] = []
-        
         for listItem in listArray {
             listEntityArray.append(createListEntityFrom(list: listItem) ?? ListEntity(context: self.managedObjectContext))
         }
@@ -138,6 +235,45 @@ class CoreDataManager: NSObject{
         weatherModelEntity.city = city
         
         return weatherModelEntity
+    }
+    
+    private func createWeatherMainEntityFrom(weatherModel: WeatherModel){
+        guard let list = weatherModel.list else { return }
+        for item in list {
+            guard
+                let dt = item.dt,
+                let dtText = item.dtTxt,
+                let main = item.main,
+                let weather = item.weather
+            else {
+                return
+            }
+            let listEntity = ListEntity(context: self.managedObjectContext)
+            listEntity.dt = Int64(dt)
+            listEntity.dtTxt = dtText
+            listEntity.main = createMainClassEntityFrom(main: main)
+            listEntity.weather = createWeatherEntityFrom(weatherArray: weather)
+        }
+    }
+    
+    private func createWeatherEntityFrom(weatherArray: [Weather]?) -> WeatherEntity? {
+        guard
+            let weatherArray = weatherArray,
+            weatherArray.count > 0
+        else { return nil }
+        let weatherItem = weatherArray[0]
+        
+        let id = weatherItem.id
+        let icon = weatherItem.icon
+        let main = weatherItem.main
+        let desc = weatherItem.desc
+        let weatherEntity = WeatherEntity(context: self.managedObjectContext)
+        weatherEntity.id = Int64(id ?? 0)
+        weatherEntity.main = main
+        weatherEntity.desc = desc
+        weatherEntity.icon = icon
+        
+        return weatherEntity
     }
     
     private func createCityEntityFrom(city: City?) -> CityEntity? {
@@ -180,8 +316,7 @@ class CoreDataManager: NSObject{
     private func createListEntityFrom(list: List) -> ListEntity? {
         guard
             let dt = list.dt,
-            let main = createMainClassEntityFrom(mainClass: list.main),
-            let weatherArray = list.weather,
+            let main = createMainClassEntityFrom(main: list.main),
             let clouds = createCouldsEntityFrom(clouds: list.clouds),
             let wind = createWindEntityFrom(wind: list.wind),
             let visibility = list.visibility,
@@ -193,15 +328,10 @@ class CoreDataManager: NSObject{
             return nil
         }
         
-        var weatherEntityArray : [WeatherEntity]? = []
-        for weatherItem in weatherArray {
-            weatherEntityArray?.append(createWeatherEntityFrom(weather: weatherItem) ?? WeatherEntity(context: self.managedObjectContext))
-        }
         
         let listEntity = ListEntity(context: self.managedObjectContext)
         listEntity.dt = Int64(dt)
         listEntity.main = main
-        listEntity.weather = weatherEntityArray
         listEntity.clouds = clouds
         listEntity.wind = wind
         listEntity.visibility = Int64(visibility)
@@ -211,59 +341,71 @@ class CoreDataManager: NSObject{
         listEntity.rain = rain
         return listEntity
     }
-
-    private func createMainClassEntityFrom(mainClass: MainClass?) -> MainClassEntity? {
-        guard
-            let temp = mainClass?.temp,
-            let feelsLike = mainClass?.feelsLike,
-            let tempMin = mainClass?.tempMin,
-            let tempMax = mainClass?.tempMax,
-            let pressure = mainClass?.pressure,
-            let seaLevel = mainClass?.seaLevel,
-            let grndLevel = mainClass?.grndLevel,
-            let humidity = mainClass?.humidity,
-            let tempKf = mainClass?.tempKf
-        else {
-            return nil
+    
+    private func createListEntityFrom(model: WeatherModel) -> [ListEntity]? {
+        guard let list = model.list else { return nil }
+        var listEntityArray = [ListEntity]()
+        for item in list {
+            guard
+                let dt = item.dt,
+                let main = createMainClassEntityFrom(main: item.main),
+                let clouds = createCouldsEntityFrom(clouds: item.clouds),
+                let wind = createWindEntityFrom(wind: item.wind),
+                let visibility = item.visibility,
+                let pop = item.pop,
+                let sys = createSysEntityFrom(sys: item.sys),
+                let dtTxt = item.dtTxt,
+                let rain = createRainEntityFrom(rain: item.rain)
+            else {
+                return nil
+            }
+            
+            let listEntity = ListEntity(context: self.managedObjectContext)
+            listEntity.dt = Int64(dt)
+            listEntity.main = main
+            listEntity.clouds = clouds
+            listEntity.wind = wind
+            listEntity.visibility = Int64(visibility)
+            listEntity.pop = pop
+            listEntity.sys = sys
+            listEntity.dtTxt = dtTxt
+            listEntity.rain = rain
+            listEntityArray.append(listEntity)
         }
-        let mainClassEntity = MainClassEntity(context: self.managedObjectContext)
-        mainClassEntity.temp = temp
-        mainClassEntity.feelsLike = feelsLike
-        mainClassEntity.tempMin = tempMin
-        mainClassEntity.tempMax = tempMax
-        mainClassEntity.pressure = Int64(pressure)
-        mainClassEntity.seaLevel = Int64(seaLevel)
-        mainClassEntity.grndLevel = Int64(grndLevel)
-        mainClassEntity.humidity = Int64(humidity)
-        mainClassEntity.tempKf = tempKf
         
+        
+
+        return listEntityArray
+    }
+
+    private func createMainClassEntityFrom(main: MainClass?) -> MainClassEntity? {
+        let mainClassEntity = MainClassEntity(context: self.managedObjectContext)
+        mainClassEntity.temp = main?.temp ?? 0
+        mainClassEntity.feelsLike = main?.feelsLike ?? 0
+        mainClassEntity.tempMin = main?.tempMin ?? 0
+        mainClassEntity.tempMax = main?.tempMax ?? 0
+        mainClassEntity.pressure = Int64(main?.pressure ?? 0)
+        mainClassEntity.seaLevel = Int64(main?.seaLevel ?? 0)
+        mainClassEntity.grndLevel = Int64(main?.grndLevel ?? 0)
+        mainClassEntity.humidity = Int64(main?.humidity ?? 0)
+        mainClassEntity.tempKf = main?.tempKf ?? 0
         return mainClassEntity
     }
     
     private func createWeatherEntityFrom(weather: Weather?) -> WeatherEntity? {
         guard
             let id = weather?.id,
-            let icon = weather?.icon
+            let icon = weather?.icon,
+            let main = weather?.main,
+            let desc = weather?.desc
         else {
             return nil
         }
-        let mainEnumEntity = MainEnumEntity(context: self.managedObjectContext)
-        mainEnumEntity.clear = MainEnum.clear.rawValue
-        mainEnumEntity.clouds = MainEnum.clouds.rawValue
-        mainEnumEntity.rain = MainEnum.rain.rawValue
-        
-        let descriptionEntity = DescriptionEntity(context: self.managedObjectContext)
-        descriptionEntity.brokenClouds = Description.brokenClouds.rawValue
-        descriptionEntity.clearSky = Description.clearSky.rawValue
-        descriptionEntity.fewClouds = Description.fewClouds.rawValue
-        descriptionEntity.lightRain = Description.lightRain.rawValue
-        descriptionEntity.overcastClouds = Description.overcastClouds.rawValue
-        descriptionEntity.scatteredClouds = Description.scatteredClouds.rawValue
         
         let weatherEntity = WeatherEntity(context: self.managedObjectContext)
         weatherEntity.id = Int64(id)
-        weatherEntity.main = mainEnumEntity
-        weatherEntity.weatherDescription = descriptionEntity
+        weatherEntity.main = main
+        weatherEntity.desc = desc
         weatherEntity.icon = icon
         
         return weatherEntity
@@ -316,5 +458,29 @@ class CoreDataManager: NSObject{
         podEntity.n = Pod.n.rawValue
         
         return podEntity
+    }
+}
+
+final class WeatherModelEntityObject: NSSecureCoding {
+    static var supportsSecureCoding = true
+    func encode(with coder: NSCoder) {}
+    init?(coder: NSCoder) {}
+}
+
+// 1. Subclass from `NSSecureUnarchiveFromDataTransformer`
+@objc(WeatherModelEntityValueTransformer)
+final class WeatherModelEntityTransformer: NSSecureUnarchiveFromDataTransformer {
+
+    /// The name of the transformer. This is the name used to register the transformer using `ValueTransformer.setValueTrandformer(_"forName:)`.
+    static let name = NSValueTransformerName(rawValue: String(describing: WeatherModelEntityTransformer.self))
+
+    override static var allowedTopLevelClasses: [AnyClass] {
+        return [WeatherModel.self, Weather.self, List.self]
+    }
+
+    /// Registers the transformer.
+    public static func register() {
+        let transformer = WeatherModelEntityTransformer()
+        ValueTransformer.setValueTransformer(transformer, forName: name)
     }
 }

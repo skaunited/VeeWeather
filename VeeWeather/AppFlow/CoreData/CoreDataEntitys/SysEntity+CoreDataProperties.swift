@@ -2,7 +2,7 @@
 //  SysEntity+CoreDataProperties.swift
 //  VeeWeather
 //
-//  Created by Skander Bahri on 19/09/2021.
+//  Created by Skander Bahri on 21/09/2021.
 //
 //
 

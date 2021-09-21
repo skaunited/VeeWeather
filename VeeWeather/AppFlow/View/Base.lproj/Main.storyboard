@@ -3,15 +3,13 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Caviar Dreams Bold.ttf">
             <string>CaviarDreams-Bold</string>
-        </array>
-        <array key="Caviar Dreams Regular.ttf">
-            <string>CaviarDreams</string>
         </array>
         <array key="futura-pt-book.otf">
             <string>FuturaPT-Book</string>
@@ -30,8 +28,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MUMBAI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1F-H8-mbC">
-                                <rect key="frame" x="162" y="78" width="90.5" height="24"/>
-                                <fontDescription key="fontDescription" name="FuturaPT-Book" family="Futura PT" pointSize="24"/>
+                                <rect key="frame" x="141" y="78" width="132" height="35"/>
+                                <fontDescription key="fontDescription" name="FuturaPT-Book" family="Futura PT" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -44,25 +42,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="5NQ-vc-seD">
                                 <rect key="frame" x="30" y="342" width="354" height="30"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="kP4-eD-f1H">
-                                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="22.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWU-0J-ylD">
-                                                <rect key="frame" x="0.0" y="0.0" width="32" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="20"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upPolygone" translatesAutoresizingMaskIntoConstraints="NO" id="7Ut-YX-MDf">
-                                                <rect key="frame" x="34" y="7.5" width="9.5" height="8"/>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4R-qe-fKZ">
-                                        <rect key="frame" x="94.5" y="0.0" width="165" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELI-a0-gb2">
-                                                <rect key="frame" x="50" y="0.0" width="65" height="30"/>
+                                                <rect key="frame" x="144.5" y="0.0" width="65" height="30"/>
                                                 <fontDescription key="fontDescription" name="FuturaPT-Book" family="Futura PT" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -76,20 +60,6 @@
                                             <constraint firstAttribute="bottom" secondItem="ELI-a0-gb2" secondAttribute="bottom" id="rbX-H0-zDe"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="G6U-Bs-aA1">
-                                        <rect key="frame" x="310.5" y="0.0" width="43.5" height="22.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSZ-Hs-gV2">
-                                                <rect key="frame" x="0.0" y="0.0" width="32" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="20"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downPolygone" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-kv-wyv">
-                                                <rect key="frame" x="34" y="7.5" width="9.5" height="8"/>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhM-uQ-9gO">
@@ -190,8 +160,12 @@
                                     <constraint firstAttribute="height" constant="64" id="MAb-cQ-Wf2"/>
                                 </constraints>
                                 <state key="normal" image="add"/>
+                                <connections>
+                                    <action selector="addNewCity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QbG-DC-Lwa"/>
+                                </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="MyU-bZ-AVG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5NQ-vc-seD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="24L-uc-mWp"/>
@@ -215,6 +189,9 @@
                     <connections>
                         <outlet property="addCountryButton" destination="vfE-Sr-7Dr" id="GlB-hQ-cDE"/>
                         <outlet property="backgroundImage" destination="845-ae-Iqn" id="np6-Wz-B8E"/>
+                        <outlet property="city" destination="N1F-H8-mbC" id="NU2-ix-nTf"/>
+                        <outlet property="currentTemp" destination="YY4-ds-HHi" id="87C-Zi-614"/>
+                        <outlet property="tempState" destination="ELI-a0-gb2" id="ZoD-q2-858"/>
                         <outlet property="weatherTableView" destination="8Xa-nN-xNZ" id="ykz-Wl-PpW"/>
                     </connections>
                 </viewController>
@@ -225,10 +202,8 @@
     </scenes>
     <resources>
         <image name="add" width="64" height="64"/>
-        <image name="downPolygone" width="9.5" height="8"/>
         <image name="homeLight" width="414" height="896"/>
         <image name="sunny" width="35" height="35"/>
-        <image name="upPolygone" width="9.5" height="8"/>
         <image name="weekarea" width="414" height="364.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

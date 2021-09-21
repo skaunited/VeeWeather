@@ -2,7 +2,7 @@
 //  WeatherEntity+CoreDataProperties.swift
 //  VeeWeather
 //
-//  Created by Skander Bahri on 19/09/2021.
+//  Created by Skander Bahri on 21/09/2021.
 //
 //
 
@@ -16,10 +16,10 @@ extension WeatherEntity {
         return NSFetchRequest<WeatherEntity>(entityName: "WeatherEntity")
     }
 
-    @NSManaged public var id: Int64
+    @NSManaged public var desc: String?
     @NSManaged public var icon: String?
-    @NSManaged public var main: MainEnumEntity?
-    @NSManaged public var weatherDescription: DescriptionEntity?
+    @NSManaged public var id: Int64
+    @NSManaged public var main: String?
 
 }
 

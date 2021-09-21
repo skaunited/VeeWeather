@@ -83,7 +83,6 @@ public enum Result<Value> where Value : Codable {
 struct ParserDecoder {
     static func decodeObject<T>(data: Data, completionHandler: @escaping (T?, Error?) -> Void) where T: Codable {
         // As step one, you need to do networking to fetch `responseData`
-        
         // code
         let decoder = JSONDecoder()
         
